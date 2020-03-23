@@ -1,0 +1,53 @@
+---
+title: "My first try on github"
+author: "Tengku Hanis"
+date: "3/23/2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Iris dataset
+
+Let's try a simple descriptive, linear regression and plotting on the Iris dataset
+
+### Descriptive
+
+```{r descriptive}
+summary(iris)
+```
+
+### Linear regression
+
+Linear regression, variable sepal length is the outcome.
+This is with the code shown:
+
+```{r regression}
+mod <- lm(Sepal.Length ~., data = iris)
+summary(mod)
+```
+
+This is without the code shown:
+```{r regression2, echo=FALSE}
+mod <- lm(Sepal.Length ~., data = iris)
+summary(mod)
+```
+
+### Plot
+
+Let's do two plot:
+
+1) Barplot for species
+```{r, echo=F}
+library(ggplot2)
+ggplot(iris, aes(Species)) + geom_bar()
+```
+
+2) Scatter plot of sepal length vs sepal width
+```{r, echo=FALSE}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) + geom_point()
+```
+
+That's it. My first try on github.
